@@ -24,6 +24,7 @@ import java.util.Map;
 import org.springframework.lang.Nullable;
 
 /**
+ * 访问者模式：把数据的结构 和 数据的处理 进行解耦
  * Abstract implementation of the {@link PropertyAccessor} interface.
  * Provides base implementations of all convenience methods, with the
  * implementation of actual property access left to subclasses.

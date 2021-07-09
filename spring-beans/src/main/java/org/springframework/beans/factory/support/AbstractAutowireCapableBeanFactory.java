@@ -155,7 +155,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 */
 	private final NamedThreadLocal<String> currentlyCreatedBean = new NamedThreadLocal<>("Currently created bean");
 
-	/** Cache of unfinished FactoryBean instances: FactoryBean name --> BeanWrapper */
+	/** Cache of unfinished FactoryBean instances: FactoryBean name --> BeanWrapper 用来存 beanwrapper的Map，用来存储原生 bean 的包装类 */
 	private final Map<String, BeanWrapper> factoryBeanInstanceCache = new ConcurrentHashMap<>(16);
 
 	/** Cache of filtered PropertyDescriptors: bean Class -> PropertyDescriptor array */
