@@ -211,6 +211,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		// Eagerly check singleton cache for manually registered singletons.
 		//先从缓存中取是否已经有被创建过的单态类型的Bean
 		//对于单例模式的Bean整个IOC容器中只创建一次，不需要重复创建
+		//直接尝试从缓存获取 或者 singletonFactories 中的 ObjectFactory 中获取
 		Object sharedInstance = getSingleton(beanName);
 		//IOC容器创建单例模式Bean实例对象
 		if (sharedInstance != null && args == null) {
@@ -228,6 +229,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 			//获取给定Bean的实例对象，主要是完成FactoryBean的相关处理
 			//注意：BeanFactory是管理容器中Bean的工厂，而FactoryBean是
 			//创建创建对象的工厂Bean，两者之间有区别
+			// 返回对应的实例，有时候存在诸如 BeanFactory 的情况并不是直接返回实例本身 而是返回指定方法返回的实例
 			bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
 		}
 
